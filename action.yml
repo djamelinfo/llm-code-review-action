@@ -1,6 +1,6 @@
-name: The name of your action here
-description: Provide a description here
-author: Your name or organization here
+name: LLM Code Review (Gitea)
+description: Runs an LLM-based review on PR diffs and posts a comment to Gitea
+author: djamelinfo
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -34,13 +34,6 @@ inputs:
     required: false
     default: ''
 
-# Define your outputs here.
-outputs:
-  greeting:
-    description: Your output description here
-
 runs:
   using: docker
   image: Dockerfile
-  env:
-    INPUT_WHO_TO_GREET: ${{ inputs.who-to-greet }}
