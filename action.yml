@@ -9,10 +9,30 @@ branding:
 
 # Define your inputs here.
 inputs:
-  who-to-greet:
-    description: Your input description here
+  gitea_base_url:
+    description: 'Base URL of your Gitea instance (e.g., https://gitea.example.com)'
     required: true
-    default: World
+  gitea_token:
+    description: 'Gitea Personal Access Token with permission to comment on PRs'
+    required: true
+  ollama_host:
+    description: 'Ollama host URL (e.g., http://127.0.0.1:11434)'
+    required: true
+  ollama_model:
+    description: 'Ollama model name (e.g., llama3.1:8b, qwen2.5-coder:7b)'
+    required: true
+  temperature:
+    description: 'Sampling temperature for the model'
+    required: false
+    default: '0.2'
+  max_context_chars:
+    description: 'Max characters per chunk of the diff sent to the model'
+    required: false
+    default: '20000'
+  system_prompt:
+    description: 'Optional custom system prompt override'
+    required: false
+    default: ''
 
 # Define your outputs here.
 outputs:
