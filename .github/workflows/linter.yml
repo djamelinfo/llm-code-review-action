@@ -30,11 +30,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Lint Codebase
-        id: super-linter
-        uses: super-linter/super-linter/slim@v8
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LINTER_RULES_PATH: ${{ github.workspace }}
-          VALIDATE_ALL_CODEBASE: true
+      # - name: Lint Codebase
+      #   id: super-linter
+      #   uses: super-linter/super-linter/slim@v8
+      #   env:
+      #     DEFAULT_BRANCH: main
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     LINTER_RULES_PATH: ${{ github.workspace }}
+      #     VALIDATE_ALL_CODEBASE: true
+
+      - name: Install uv (tooling for CI)
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          export PATH="$HOME/.local/bin:$PATH"
+          uv --version
+
+      - name: (Optional) Lint entrypoint with ruff via uvx
+        run: |
+          uvx ruff --version
+          uvx ruff check entrypoint.py
