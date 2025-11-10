@@ -4,7 +4,7 @@ author: djamelinfo
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: heart
+  icon: robot
   color: red
 
 # Define your inputs here.

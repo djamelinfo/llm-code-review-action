@@ -27,7 +27,7 @@ jobs:
           ollama_model: qwen2.5-coder:7b
           temperature: '0.2'
           max_context_chars: '20000'
-          system_prompt: ''
+          #system_prompt: ''
 ```
 
 Inputs:
